@@ -1,0 +1,6 @@
+ext {
+    supportVersion = '26.+'
+    archVersion = '1.0.0-alpha5'
+    butterKnifeVersion = '8.3.0'
+    photoViewVersion = '2.0.0'
+}
