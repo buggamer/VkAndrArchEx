@@ -3,6 +3,7 @@ package com.example.daim.vkandrarchex.repository;
 
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.daim.vkandrarchex.api.VkPhotoFetchr;
 import com.example.daim.vkandrarchex.content.Photo;

@@ -71,11 +71,8 @@ public class VkPhotoFetchr {
                     .appendQueryParameter("count", Integer.toString(count))
                     .build().toString();
             String jsonString = getUrlString(url);
-            Log.d(LOG_TAG, "Fire URL: " + url);
-            Log.d(LOG_TAG, "Received JSON: " + jsonString);
             JSONObject jsonBody = new JSONObject(jsonString);
             List<Photo> photos = parseItems(jsonBody);
-            Log.d(LOG_TAG, "List<photo>.size(): " + photos.size());
             return photos;
         }catch (JSONException je){
             Log.e(LOG_TAG, "Failed to parse JSON", je);
