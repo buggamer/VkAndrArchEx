@@ -8,11 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-
 import com.example.daim.vkandrarchex.content.Photo;
 import com.github.chrisbanes.photoview.PhotoView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PhotoPagerAdapter extends PagerAdapter {
@@ -34,8 +32,6 @@ public class PhotoPagerAdapter extends PagerAdapter {
         PhotoView photoView = new PhotoView(container.getContext());
         mListener.loadPhoto(photoView, mPhotoList.get(position).getBigPhotoUrl());
         photoView.setOnClickListener((View v)->{mListener.onClickView();});
-        Log.d(LOG_TAG, "loading url: " + mPhotoList.get(position).getBigPhotoUrl() + "\n"
-                + "position: " + position + "; list.size: " + mPhotoList.size());
         container.addView(photoView);
         if((getCount() - position) == mPaginationStep) mListener.paginationRequest();
         return photoView;

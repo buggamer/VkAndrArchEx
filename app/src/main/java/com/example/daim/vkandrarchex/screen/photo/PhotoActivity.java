@@ -32,7 +32,6 @@ public class PhotoActivity extends AppCompatActivity implements LifecycleRegistr
 
     public static final String LOG_TAG = "PhotoActivity1";
 
-    public static final String EXTRA_PHOTO = "photo";
     public static final String IMAGE_POSIION = "image_position";
 
     private LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
@@ -139,7 +138,6 @@ public class PhotoActivity extends AppCompatActivity implements LifecycleRegistr
         int resourceId = this.getResources().getIdentifier("status_bar_height", "dimen", "android");
         if(resourceId > 0){
             result = this.getResources().getDimensionPixelSize(resourceId);
-            Log.d(LOG_TAG, "result: " + result);
             mAppBarLayot.setPadding(0, result, 0, 0);
         }
     }

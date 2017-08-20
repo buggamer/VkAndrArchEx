@@ -26,7 +26,6 @@ import java.util.List;
 
 public class VkPhotoFetchr {
     private final static String LOG_TAG = "VkPhotoFetchr";
-    private static int totalByteSize;
 
     public static byte[] getUrlBytes(String urlSpec) throws IOException {
         URL url = new URL(urlSpec);
@@ -46,9 +45,7 @@ public class VkPhotoFetchr {
             }
             out.close();
             byte[] resultArray = out.toByteArray();
-            int byteLength = resultArray.length;
-            totalByteSize += byteLength;
-            Log.d(LOG_TAG, "photo size: " + byteLength + "\n totalByteSize: " + totalByteSize);
+            int byteLength = resultArray.length;;
             return resultArray;
         } finally {
             connection.disconnect();

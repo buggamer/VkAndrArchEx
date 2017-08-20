@@ -33,7 +33,6 @@ public class GalleryAdapter extends BaseAdapter<PhotoHolder, Photo> {
     @Override
     public void onBindViewHolder(PhotoHolder holder, int position) {
         super.onBindViewHolder(holder, position);
-        Log.d(LOG_TAG, "onBindViewHolder(): " + position);
         Photo photo = getItem(position);
         String url = holder.getPhotoUrl(photo);
         mGalleryAdapterListener.photoImageRequest(holder.mImageView, url);

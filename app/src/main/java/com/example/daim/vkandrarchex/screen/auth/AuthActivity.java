@@ -1,13 +1,10 @@
 package com.example.daim.vkandrarchex.screen.auth;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
 
 import com.example.daim.vkandrarchex.AppDelegate;
 import com.example.daim.vkandrarchex.R;
@@ -44,7 +41,6 @@ public class AuthActivity extends AppCompatActivity implements AuthView{
     @Override
     public void loadAuthWebView(String url) {
         mWebView.loadUrl(url);
-        Log.d(LOG_TAG, url);
     }
 
     @Override
@@ -58,7 +54,6 @@ public class AuthActivity extends AppCompatActivity implements AuthView{
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
-            Log.d(LOG_TAG, "onPageFinishied:" + url);
             mPresenter.saveParseToken(url);
         }
     }

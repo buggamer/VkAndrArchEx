@@ -7,9 +7,6 @@ import android.util.Log;
 import com.example.daim.vkandrarchex.BuildConfig;
 
 
-/**
- * Created by DAIM on 22.07.2017.
- */
 
 public class AuthorizationUtils {
 
@@ -46,7 +43,6 @@ public class AuthorizationUtils {
     }
 
     public static boolean parseAndSaveToken(String url){
-    //    Log.d(LOG_TAG,"parse_url: " + url);
         if(url.contains(REDIRECT_URI_REGEX) && url.contains(TOKEN_KEY) && !url.contains("error")){
             Log.d(LOG_TAG, url);
             String[] query = url.split("#");

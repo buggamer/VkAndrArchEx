@@ -50,48 +50,36 @@ public class PhotoImageCache {
         return localInstance;
     }
 
-    public Bitmap getPhoto(String url){
+    synchronized public Bitmap getPhoto(String url){
         Bitmap result = getSmallPhoto(url);
         if(result == null) result = getBigPhoto(url);
         return result;
     }
 
-    public void putPhoto(@NonNull String url,@NonNull Bitmap bitmap){
+    synchronized public void putPhoto(@NonNull String url,@NonNull Bitmap bitmap){
         if(bitmap.getAllocationByteCount() > 2000000){
             putBigPhoto(url, bitmap);
-            Log.d(LOG_TAG, "bitmap.size: " +  bitmap.getAllocationByteCount() + " - big");
         }
         else{
-            putSmallPhoto(url, bitmap);
-            Log.d(LOG_TAG, "bitmap.size: " +  bitmap.getAllocationByteCount() + " - small");
+            putSmallPhoto(url, bitmap);;
         }
     }
 
     private void putSmallPhoto(String url, Bitmap bitmap){
-        synchronized (mSmallPhotoCache){
-            mSmallPhotoCache.put(url, bitmap);
-        }
+        mSmallPhotoCache.put(url, bitmap);
     }
 
     private Bitmap getSmallPhoto(String url){
-        Bitmap result = null;
-        synchronized (mSmallPhotoCache){
-            result = mSmallPhotoCache.get(url);
-        }
+        Bitmap result = mSmallPhotoCache.get(url);
         return result;
     }
 
     private void putBigPhoto(String url, Bitmap bitmap){
-        synchronized (mBigPhotoCache){
-            mBigPhotoCache.put(url, bitmap);
-        }
+        mBigPhotoCache.put(url, bitmap);
     }
 
     private Bitmap getBigPhoto(String url){
-        Bitmap result = null;
-        synchronized (mBigPhotoCache){
-            result = mBigPhotoCache.get(url);
-        }
+        Bitmap result = mBigPhotoCache.get(url);
         return result;
     }
 }
